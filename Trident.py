@@ -1,39 +1,29 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-#*******************************************************
-# 作者：伍耀晖              Author: YaoHui.Wu          *
-# 开源日期：2022年7月7日    Open Source Date: 2022-7-7 *
-# 国家：中国                Country: China             *
-#*******************************************************
+#************************************************************
+# 作者：伍耀晖              Author: Geek.Zhiyuan            *
+# 开源日期：2022年7月7日    Open Source Date: 2022-7-7      *
+# 国家城市：中国广州        City, Country: GuangZhou, China *
+#************************************************************
 
 import sys
 
 def Usage():
     print("Usage\n\tEncryption: python Trident.py -e/-E Plaintext.file Ciphertext.file Password\n\tDecryption: python Trident.py -d/-D Ciphertext.file Plaintext.file Password")
 
-def Ternary(iNumeric, lTrinary):
-    for i in range(5, -1, -1):
-        iNumeric, iRemainder = divmod(iNumeric, 3)
-
-        lTrinary[i] = iRemainder
-
-def Trinary(iNumeric):
-    lTernary = [0, 0, 0, 0, 0, 0]
+def Trinary(lTrinary, iNumeric):
+    lTrinary[0] = lTrinary[1] = lTrinary[2] = lTrinary[3] = lTrinary[4] = lTrinary[5] = 0
 
     if iNumeric != 0:
         for i in range(5, -1, -1):
-            iNumeric, iRemainder = divmod(iNumeric, 3)
-
-            lTernary[i] = iRemainder
-
-    return lTernary
+            iNumeric, lTrinary[i] = divmod(iNumeric, 3)
 
 # 0 0 2
 # 1 1 1
 # 2 2 0
 
-def TernaryXor0(lTrinary, lPassword):
+def TrinaryXOr0(lTrinary, lPassword):
     for j in range(6):
        if lTrinary[j] == lPassword[j] == 0: lTrinary[j] = 0
 
@@ -53,13 +43,11 @@ def TernaryXor0(lTrinary, lPassword):
 
        elif lTrinary[j] == lPassword[j] == 2: lTrinary[j] = 0
 
-    return lTrinary
-
 # 0 2 2
 # 1 1 1
 # 2 0 0
 
-def TernaryXor2(lTrinary, lPassword):
+def TrinaryXOr2(lTrinary, lPassword):
     for j in range(6):
        if lTrinary[j] == lPassword[j] == 0: lTrinary[j] = 0
 
@@ -79,13 +67,11 @@ def TernaryXor2(lTrinary, lPassword):
 
        elif lTrinary[j] == lPassword[j] == 2: lTrinary[j] = 0
 
-    return lTrinary
-
 # 2 0 0
 # 1 1 1
 # 0 2 2
 
-def TernaryXand0(lTrinary, lPassword):
+def TrinaryXAnd0(lTrinary, lPassword):
     for k in range(6):
        if lTrinary[k] == lPassword[k] == 0: lTrinary[k] = 2
 
@@ -105,13 +91,11 @@ def TernaryXand0(lTrinary, lPassword):
 
        elif lTrinary[k] == lPassword[k] == 2: lTrinary[k] = 2
 
-    return lTrinary
-
 # 2 2 0
 # 1 1 1
 # 0 0 2
 
-def TernaryXand2(lTrinary, lPassword):
+def TrinaryXAnd2(lTrinary, lPassword):
     for k in range(6):
        if lTrinary[k] == lPassword[k] == 0: lTrinary[k] = 2
 
@@ -131,8 +115,6 @@ def TernaryXand2(lTrinary, lPassword):
 
        elif lTrinary[k] == lPassword[k] == 2: lTrinary[k] = 2
 
-    return lTrinary
-
 if __name__ == "__main__":
     if len(sys.argv) != 5: Usage()
 
@@ -147,45 +129,47 @@ if __name__ == "__main__":
 
             exit(-1)
 
-        strPassword, lPassword, lTrinary = sys.argv[4], [], [0, 0, 0, 0, 0, 0]
+        strPassword, lPassword = sys.argv[4], []
 
-        iPasswordLength, k, baCiphertext = len(strPassword), 0, bytearray(2 * iFileSize)
+        iPasswordLength, lTrinary = len(strPassword), [0] * 6
+
+        k, baCiphertext = 0, bytearray(2 * iFileSize)
 
         for i in range(iPasswordLength):
-            lPassword.append(Trinary(ord(strPassword[i])))
+            lPassword.append([0] * 6)
+
+            Trinary(lPassword[i], ord(strPassword[i]))
 
         for j in range(iFileSize):
-            Ternary(bPlaintext[j], lTrinary)
+            Trinary(lTrinary, bPlaintext[j])
 
-            TernaryXor0(lTrinary, lPassword[k])
+            TrinaryXOr0(lTrinary, lPassword[k])
 
-            TernaryXor2(lTrinary, lPassword[k])
+            TrinaryXOr2(lTrinary, lPassword[k])
 
-            TernaryXand0(lTrinary, lPassword[k])
+            TrinaryXAnd0(lTrinary, lPassword[k])
 
-            #TernaryXor0(lTrinary, lPassword[k])
+            #TrinaryXOr0(lTrinary, lPassword[k])
 
-            #TernaryXor2(lTrinary, lPassword[k])
+            #TrinaryXOr2(lTrinary, lPassword[k])
 
-            #TernaryXand2(lTrinary, lPassword[k])
+            #TrinaryXAnd2(lTrinary, lPassword[k])
 
-            #TernaryXor0(lTrinary, lPassword[k])
+            #TrinaryXOr0(lTrinary, lPassword[k])
 
-            #TernaryXand0(lTrinary, lPassword[k])
+            #TrinaryXAnd0(lTrinary, lPassword[k])
 
-            #TernaryXand2(lTrinary, lPassword[k])
+            #TrinaryXAnd2(lTrinary, lPassword[k])
 
-            #TernaryXor2(lTrinary, lPassword[k])
+            #TrinaryXOr2(lTrinary, lPassword[k])
 
-            #TernaryXand0(lTrinary, lPassword[k])
+            #TrinaryXAnd0(lTrinary, lPassword[k])
 
-            #TernaryXand2(lTrinary, lPassword[k])
+            #TrinaryXAnd2(lTrinary, lPassword[k])
 
-            iTrinary = 243 * lTrinary[0] + 81 * lTrinary[1] + 27 * lTrinary[2] + 9 * lTrinary[3] + 3 * lTrinary[4] + lTrinary[5]
+            iData = 243 * lTrinary[0] + 81 * lTrinary[1] + 27 * lTrinary[2] + 9 * lTrinary[3] + 3 * lTrinary[4] + lTrinary[5]
 
-            baCiphertext[2 * j] = iTrinary & 255
-
-            baCiphertext[2 * j + 1] = iTrinary >> 8
+            baCiphertext[2 * j : 2 * j + 2] = iData.to_bytes(2, "little")
 
             k = (k + 1) % iPasswordLength
 
@@ -196,48 +180,50 @@ if __name__ == "__main__":
         with open(sys.argv[2], "br") as fdCiphertext:
             bCiphertext = fdCiphertext.read()
 
-            iFileSize = fdCiphertext.tell()
+            iFileSize = fdCiphertext.tell() // 2
 
         if iFileSize == 0:
             print("There is no data in file [{}], 0 byte.".format(sys.argv[2]))
 
             exit(-1)
 
-        iFileSize //= 2
+        strPassword, lPassword = sys.argv[4], []
 
-        strPassword, lPassword, lTrinary = sys.argv[4], [], [0, 0, 0, 0, 0, 0]
+        iPasswordLength, lTrinary = len(strPassword), [0] * 6
 
-        iPasswordLength, k, baPlaintext = len(strPassword), 0, bytearray(iFileSize)
+        k, baPlaintext = 0, bytearray(iFileSize)
 
         for i in range(iPasswordLength):
-            lPassword.append(Trinary(ord(strPassword[i])))
+            lPassword.append([0] * 6)
+
+            Trinary(lPassword[i], ord(strPassword[i]))
 
         for j in range(iFileSize):
-            Ternary(bCiphertext[2 * j] + (bCiphertext[2 * j + 1] << 8), lTrinary)
+            Trinary(lTrinary, bCiphertext[2 * j] + (bCiphertext[2 * j + 1] << 8))
 
-            TernaryXand0(lTrinary, lPassword[k])
+            TrinaryXAnd0(lTrinary, lPassword[k])
 
-            TernaryXor2(lTrinary, lPassword[k])
+            TrinaryXOr2(lTrinary, lPassword[k])
 
-            TernaryXor0(lTrinary, lPassword[k])
+            TrinaryXOr0(lTrinary, lPassword[k])
 
-            #TernaryXand2(lTrinary, lPassword[k])
+            #TrinaryXAnd2(lTrinary, lPassword[k])
 
-            #TernaryXor2(lTrinary, lPassword[k])
+            #TrinaryXOr2(lTrinary, lPassword[k])
 
-            #TernaryXor0(lTrinary, lPassword[k])
+            #TrinaryXOr0(lTrinary, lPassword[k])
 
-            #TernaryXand2(lTrinary, lPassword[k])
+            #TrinaryXAnd2(lTrinary, lPassword[k])
 
-            #TernaryXand0(lTrinary, lPassword[k])
+            #TrinaryXAnd0(lTrinary, lPassword[k])
 
-            #TernaryXor0(lTrinary, lPassword[k])
+            #TrinaryXOr0(lTrinary, lPassword[k])
 
-            #TernaryXand2(lTrinary, lPassword[k])
+            #TrinaryXAnd2(lTrinary, lPassword[k])
 
-            #TernaryXand0(lTrinary, lPassword[k])
+            #TrinaryXAnd0(lTrinary, lPassword[k])
 
-            #TernaryXor2(lTrinary, lPassword[k])
+            #TrinaryXOr2(lTrinary, lPassword[k])
 
             baPlaintext[j] = 243 * lTrinary[0] + 81 * lTrinary[1] + 27 * lTrinary[2] + 9 * lTrinary[3] + 3 * lTrinary[4] + lTrinary[5]
 

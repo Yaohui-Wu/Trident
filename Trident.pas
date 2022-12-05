@@ -1,11 +1,11 @@
-(*******************************************************
-* 作者：伍耀晖              Author: YaoHui.Wu          *
-* 开源日期：2022年7月7日    Open Source Date: 2022-7-7 *
-* 国家：中国                Country: China             *
-*******************************************************)
+(************************************************************
+* 作者：伍耀晖              Author: Geek.Zhiyuan            *
+* 开源日期：2022年7月7日    Open Source Date: 2022-7-7      *
+* 国家城市：中国广州        City, Country: GuangZhou, China *
+************************************************************)
 (* Compiled by free pascal. free pascal website: www.freepascal.org *)
 
-Program TwistedPair;
+Program Trident;
 
 Type
    TrinaryArray = Array[0..5] Of Byte;
@@ -15,8 +15,8 @@ Begin
     Writeln('Usage'#10#9'Encryption: Trident -e/-E Plaintext.file Ciphertext.file Password'#10#9'Decryption: Trident -d/-D Ciphertext.file Plaintext.file Password');
 End;
 
-Procedure Ternary(wNumeric : Word;
-                  Var baTrinary : TrinaryArray);
+Procedure Trinary(Var baTrinary : TrinaryArray;
+                  wNumeric : Word);
 Var
     i : Byte;
 
@@ -50,7 +50,7 @@ End;
  2 2 0
 *)
 
-Procedure TernaryXor0(Var baCiphertextOrPlaintext : TrinaryArray;
+Procedure TrinaryXOr0(Var baCiphertextOrPlaintext : TrinaryArray;
                       Var baPassword : TrinaryArray);
 Var
     j : Byte;
@@ -103,7 +103,7 @@ End;
  2 0 0
 *)
 
-Procedure TernaryXor2(Var baCiphertextOrPlaintext : TrinaryArray;
+Procedure TrinaryXOr2(Var baCiphertextOrPlaintext : TrinaryArray;
                       Var baPassword : TrinaryArray);
 Var
     j : Byte;
@@ -156,7 +156,7 @@ End;
  0 2 2
 *)
 
-Procedure TernaryXand0(Var baCiphertextOrPlaintext : TrinaryArray;
+Procedure TrinaryXAnd0(Var baCiphertextOrPlaintext : TrinaryArray;
                        Var baPassword : TrinaryArray);
 Var
     k : Byte;
@@ -209,7 +209,7 @@ End;
  0 0 2
 *)
 
-Procedure TernaryXand2(Var baCiphertextOrPlaintext : TrinaryArray;
+Procedure TrinaryXAnd2(Var baCiphertextOrPlaintext : TrinaryArray;
                        Var baPassword : TrinaryArray);
 Var
     k : Byte;
@@ -305,38 +305,38 @@ Begin
 
         For i := 1 To bPasswordLength Do
         Begin
-            Ternary(Ord(ParamStr(4)[i]), baPassword[i - 1]);
+            Trinary(baPassword[i - 1], Ord(ParamStr(4)[i]));
         End;
 
         k := 0;
 
         For j := 0 To ulFileSize - 1 Do
         Begin
-            Ternary(bpPlaintext[j], baPlaintextOrCiphertext);
+            Trinary(baPlaintextOrCiphertext, bpPlaintext[j]);
 
-            TernaryXor0(baPlaintextOrCiphertext, baPassword[k]);
+            TrinaryXOr0(baPlaintextOrCiphertext, baPassword[k]);
 
-            TernaryXor2(baPlaintextOrCiphertext, baPassword[k]);
+            TrinaryXOr2(baPlaintextOrCiphertext, baPassword[k]);
 
-            TernaryXand0(baPlaintextOrCiphertext, baPassword[k]);
+            TrinaryXAnd0(baPlaintextOrCiphertext, baPassword[k]);
 
-            (*TernaryXor0(baPlaintextOrCiphertext, baPassword[k]);
+            (*TrinaryXOr0(baPlaintextOrCiphertext, baPassword[k]);
 
-            TernaryXor2(baPlaintextOrCiphertext, baPassword[k]);
+            TrinaryXOr2(baPlaintextOrCiphertext, baPassword[k]);
 
-            TernaryXand2(baPlaintextOrCiphertext, baPassword[k]);
+            TrinaryXAnd2(baPlaintextOrCiphertext, baPassword[k]);
 
-            TernaryXor0(baPlaintextOrCiphertext, baPassword[k]);
+            TrinaryXOr0(baPlaintextOrCiphertext, baPassword[k]);
 
-            TernaryXand0(baPlaintextOrCiphertext, baPassword[k]);
+            TrinaryXAnd0(baPlaintextOrCiphertext, baPassword[k]);
 
-            TernaryXand2(baPlaintextOrCiphertext, baPassword[k]);
+            TrinaryXAnd2(baPlaintextOrCiphertext, baPassword[k]);
 
-            TernaryXor2(baPlaintextOrCiphertext, baPassword[k]);
+            TrinaryXOr2(baPlaintextOrCiphertext, baPassword[k]);
 
-            TernaryXand0(baPlaintextOrCiphertext, baPassword[k]);
+            TrinaryXAnd0(baPlaintextOrCiphertext, baPassword[k]);
 
-            TernaryXand2(baPlaintextOrCiphertext, baPassword[k]);*)
+            TrinaryXAnd2(baPlaintextOrCiphertext, baPassword[k]);*)
 
             wpCiphertext[j] := 243 * baPlaintextOrCiphertext[0] + 81 * baPlaintextOrCiphertext[1] + 27 * baPlaintextOrCiphertext[2] + 9 * baPlaintextOrCiphertext[3] + 3 * baPlaintextOrCiphertext[4] + baPlaintextOrCiphertext[5];
 
@@ -386,38 +386,38 @@ Begin
 
         For i := 1 To bPasswordLength Do
         Begin
-            Ternary(Ord(ParamStr(4)[i]), baPassword[i - 1]);
+            Trinary(baPassword[i - 1], Ord(ParamStr(4)[i]));
         End;
 
         k := 0;
 
         For j := 0 To ulFileSize - 1 Do
         Begin
-            Ternary(wpCiphertext[j], baPlaintextOrCiphertext);
+            Trinary(baPlaintextOrCiphertext, wpCiphertext[j]);
 
-            TernaryXand0(baPlaintextOrCiphertext, baPassword[k]);
+            TrinaryXAnd0(baPlaintextOrCiphertext, baPassword[k]);
 
-            TernaryXor2(baPlaintextOrCiphertext, baPassword[k]);
+            TrinaryXOr2(baPlaintextOrCiphertext, baPassword[k]);
 
-            TernaryXor0(baPlaintextOrCiphertext, baPassword[k]);
+            TrinaryXOr0(baPlaintextOrCiphertext, baPassword[k]);
 
-            (*TernaryXand2(baPlaintextOrCiphertext, baPassword[k]);
+            (*TrinaryXAnd2(baPlaintextOrCiphertext, baPassword[k]);
 
-            TernaryXor2(baPlaintextOrCiphertext, baPassword[k]);
+            TrinaryXOr2(baPlaintextOrCiphertext, baPassword[k]);
 
-            TernaryXor0(baPlaintextOrCiphertext, baPassword[k]);
+            TrinaryXOr0(baPlaintextOrCiphertext, baPassword[k]);
 
-            TernaryXand2(baPlaintextOrCiphertext, baPassword[k]);
+            TrinaryXAnd2(baPlaintextOrCiphertext, baPassword[k]);
 
-            TernaryXand0(baPlaintextOrCiphertext, baPassword[k]);
+            TrinaryXAnd0(baPlaintextOrCiphertext, baPassword[k]);
 
-            TernaryXor0(baPlaintextOrCiphertext, baPassword[k]);
+            TrinaryXOr0(baPlaintextOrCiphertext, baPassword[k]);
 
-            TernaryXand2(baPlaintextOrCiphertext, baPassword[k]);
+            TrinaryXAnd2(baPlaintextOrCiphertext, baPassword[k]);
 
-            TernaryXand0(baPlaintextOrCiphertext, baPassword[k]);
+            TrinaryXAnd0(baPlaintextOrCiphertext, baPassword[k]);
 
-            TernaryXor2(baPlaintextOrCiphertext, baPassword[k]);*)
+            TrinaryXOr2(baPlaintextOrCiphertext, baPassword[k]);*)
 
             bpPlaintext[j] := 243 * baPlaintextOrCiphertext[0] + 81 * baPlaintextOrCiphertext[1] + 27 * baPlaintextOrCiphertext[2] + 9 * baPlaintextOrCiphertext[3] + 3 * baPlaintextOrCiphertext[4] + baPlaintextOrCiphertext[5];
 
