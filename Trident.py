@@ -23,97 +23,97 @@ def Trinary(lTrinary, iNumeric):
 # 1 1 1
 # 2 2 0
 
-def TrinaryXOr0(lTrinary, lPassword):
-    for j in range(6):
-       if lTrinary[j] == lPassword[j] == 0: lTrinary[j] = 0
+def TrinaryXOr0(lPlaintextOrCiphertext, lPassword):
+    for i in range(6):
+       if lPlaintextOrCiphertext[i] == lPassword[i] == 0: lPlaintextOrCiphertext[i] = 0
 
-       elif lTrinary[j] == 0 and lPassword[j] == 1: lTrinary[j] = 0
+       elif lPlaintextOrCiphertext[i] == 0 and lPassword[i] == 1: lPlaintextOrCiphertext[i] = 0
 
-       elif lTrinary[j] == 0 and lPassword[j] == 2: lTrinary[j] = 2
+       elif lPlaintextOrCiphertext[i] == 0 and lPassword[i] == 2: lPlaintextOrCiphertext[i] = 2
 
-       elif lTrinary[j] == 1 and lPassword[j] == 0: lTrinary[j] = 1
+       elif lPlaintextOrCiphertext[i] == 1 and lPassword[i] == 0: lPlaintextOrCiphertext[i] = 1
 
-       elif lTrinary[j] == lPassword[j] == 1: lTrinary[j] = 1
+       elif lPlaintextOrCiphertext[i] == lPassword[i] == 1: lPlaintextOrCiphertext[i] = 1
 
-       elif lTrinary[j] == 1 and lPassword[j] == 2: lTrinary[j] = 1
+       elif lPlaintextOrCiphertext[i] == 1 and lPassword[i] == 2: lPlaintextOrCiphertext[i] = 1
 
-       elif lTrinary[j] == 2 and lPassword[j] == 0: lTrinary[j] = 2
+       elif lPlaintextOrCiphertext[i] == 2 and lPassword[i] == 0: lPlaintextOrCiphertext[i] = 2
 
-       elif lTrinary[j] == 2 and lPassword[j] == 1: lTrinary[j] = 2
+       elif lPlaintextOrCiphertext[i] == 2 and lPassword[i] == 1: lPlaintextOrCiphertext[i] = 2
 
-       elif lTrinary[j] == lPassword[j] == 2: lTrinary[j] = 0
+       elif lPlaintextOrCiphertext[i] == lPassword[i] == 2: lPlaintextOrCiphertext[i] = 0
 
 # 0 2 2
 # 1 1 1
 # 2 0 0
 
-def TrinaryXOr2(lTrinary, lPassword):
+def TrinaryXOr2(lPlaintextOrCiphertext, lPassword):
     for j in range(6):
-       if lTrinary[j] == lPassword[j] == 0: lTrinary[j] = 0
+       if lPlaintextOrCiphertext[j] == lPassword[j] == 0: lPlaintextOrCiphertext[j] = 0
 
-       elif lTrinary[j] == 0 and lPassword[j] == 1: lTrinary[j] = 2
+       elif lPlaintextOrCiphertext[j] == 0 and lPassword[j] == 1: lPlaintextOrCiphertext[j] = 2
 
-       elif lTrinary[j] == 0 and lPassword[j] == 2: lTrinary[j] = 2
+       elif lPlaintextOrCiphertext[j] == 0 and lPassword[j] == 2: lPlaintextOrCiphertext[j] = 2
 
-       elif lTrinary[j] == 1 and lPassword[j] == 0: lTrinary[j] = 1
+       elif lPlaintextOrCiphertext[j] == 1 and lPassword[j] == 0: lPlaintextOrCiphertext[j] = 1
 
-       elif lTrinary[j] == lPassword[j] == 1: lTrinary[j] = 1
+       elif lPlaintextOrCiphertext[j] == lPassword[j] == 1: lPlaintextOrCiphertext[j] = 1
 
-       elif lTrinary[j] == 1 and lPassword[j] == 2: lTrinary[j] = 1
+       elif lPlaintextOrCiphertext[j] == 1 and lPassword[j] == 2: lPlaintextOrCiphertext[j] = 1
 
-       elif lTrinary[j] == 2 and lPassword[j] == 0: lTrinary[j] = 2
+       elif lPlaintextOrCiphertext[j] == 2 and lPassword[j] == 0: lPlaintextOrCiphertext[j] = 2
 
-       elif lTrinary[j] == 2 and lPassword[j] == 1: lTrinary[j] = 0
+       elif lPlaintextOrCiphertext[j] == 2 and lPassword[j] == 1: lPlaintextOrCiphertext[j] = 0
 
-       elif lTrinary[j] == lPassword[j] == 2: lTrinary[j] = 0
+       elif lPlaintextOrCiphertext[j] == lPassword[j] == 2: lPlaintextOrCiphertext[j] = 0
 
 # 2 0 0
 # 1 1 1
 # 0 2 2
 
-def TrinaryXAnd0(lTrinary, lPassword):
+def TrinaryXAnd0(lPlaintextOrCiphertext, lPassword):
     for k in range(6):
-       if lTrinary[k] == lPassword[k] == 0: lTrinary[k] = 2
+       if lPlaintextOrCiphertext[k] == lPassword[k] == 0: lPlaintextOrCiphertext[k] = 2
 
-       elif lTrinary[k] == 0 and lPassword[k] == 1: lTrinary[k] = 0
+       elif lPlaintextOrCiphertext[k] == 0 and lPassword[k] == 1: lPlaintextOrCiphertext[k] = 0
 
-       elif lTrinary[k] == 0 and lPassword[k] == 2: lTrinary[k] = 0
+       elif lPlaintextOrCiphertext[k] == 0 and lPassword[k] == 2: lPlaintextOrCiphertext[k] = 0
 
-       elif lTrinary[k] == 1 and lPassword[k] == 0: lTrinary[k] = 1
+       elif lPlaintextOrCiphertext[k] == 1 and lPassword[k] == 0: lPlaintextOrCiphertext[k] = 1
 
-       elif lTrinary[k] == lPassword[k] == 1: lTrinary[k] = 1
+       elif lPlaintextOrCiphertext[k] == lPassword[k] == 1: lPlaintextOrCiphertext[k] = 1
 
-       elif lTrinary[k] == 1 and lPassword[k] == 2: lTrinary[k] = 1
+       elif lPlaintextOrCiphertext[k] == 1 and lPassword[k] == 2: lPlaintextOrCiphertext[k] = 1
 
-       elif lTrinary[k] == 2 and lPassword[k] == 0: lTrinary[k] = 0
+       elif lPlaintextOrCiphertext[k] == 2 and lPassword[k] == 0: lPlaintextOrCiphertext[k] = 0
 
-       elif lTrinary[k] == 2 and lPassword[k] == 1: lTrinary[k] = 2
+       elif lPlaintextOrCiphertext[k] == 2 and lPassword[k] == 1: lPlaintextOrCiphertext[k] = 2
 
-       elif lTrinary[k] == lPassword[k] == 2: lTrinary[k] = 2
+       elif lPlaintextOrCiphertext[k] == lPassword[k] == 2: lPlaintextOrCiphertext[k] = 2
 
 # 2 2 0
 # 1 1 1
 # 0 0 2
 
-def TrinaryXAnd2(lTrinary, lPassword):
-    for k in range(6):
-       if lTrinary[k] == lPassword[k] == 0: lTrinary[k] = 2
+def TrinaryXAnd2(lPlaintextOrCiphertext, lPassword):
+    for l in range(6):
+       if lPlaintextOrCiphertext[l] == lPassword[l] == 0: lPlaintextOrCiphertext[l] = 2
 
-       elif lTrinary[k] == 0 and lPassword[k] == 1: lTrinary[k] = 2
+       elif lPlaintextOrCiphertext[l] == 0 and lPassword[l] == 1: lPlaintextOrCiphertext[l] = 2
 
-       elif lTrinary[k] == 0 and lPassword[k] == 2: lTrinary[k] = 0
+       elif lPlaintextOrCiphertext[l] == 0 and lPassword[l] == 2: lPlaintextOrCiphertext[l] = 0
 
-       elif lTrinary[k] == 1 and lPassword[k] == 0: lTrinary[k] = 1
+       elif lPlaintextOrCiphertext[l] == 1 and lPassword[l] == 0: lPlaintextOrCiphertext[l] = 1
 
-       elif lTrinary[k] == lPassword[k] == 1: lTrinary[k] = 1
+       elif lPlaintextOrCiphertext[l] == lPassword[l] == 1: lPlaintextOrCiphertext[l] = 1
 
-       elif lTrinary[k] == 1 and lPassword[k] == 2: lTrinary[k] = 1
+       elif lPlaintextOrCiphertext[l] == 1 and lPassword[l] == 2: lPlaintextOrCiphertext[l] = 1
 
-       elif lTrinary[k] == 2 and lPassword[k] == 0: lTrinary[k] = 0
+       elif lPlaintextOrCiphertext[l] == 2 and lPassword[l] == 0: lPlaintextOrCiphertext[l] = 0
 
-       elif lTrinary[k] == 2 and lPassword[k] == 1: lTrinary[k] = 0
+       elif lPlaintextOrCiphertext[l] == 2 and lPassword[l] == 1: lPlaintextOrCiphertext[l] = 0
 
-       elif lTrinary[k] == lPassword[k] == 2: lTrinary[k] = 2
+       elif lPlaintextOrCiphertext[l] == lPassword[l] == 2: lPlaintextOrCiphertext[l] = 2
 
 if __name__ == "__main__":
     if len(sys.argv) != 5: Usage()
@@ -131,7 +131,7 @@ if __name__ == "__main__":
 
         strPassword, lPassword = sys.argv[4], []
 
-        iPasswordLength, lTrinary = len(strPassword), [0] * 6
+        iPasswordLength, lPlaintextOrCiphertext = len(strPassword), [0] * 6
 
         k, baCiphertext = 0, bytearray(2 * iFileSize)
 
@@ -141,33 +141,176 @@ if __name__ == "__main__":
             Trinary(lPassword[i], ord(strPassword[i]))
 
         for j in range(iFileSize):
-            Trinary(lTrinary, bPlaintext[j])
+            Trinary(lPlaintextOrCiphertext, bPlaintext[j])
 
-            TrinaryXOr0(lTrinary, lPassword[k])
+            TrinaryXOr0(lPlaintextOrCiphertext, lPassword[k])
 
-            TrinaryXOr2(lTrinary, lPassword[k])
+            TrinaryXOr2(lPlaintextOrCiphertext, lPassword[k])
 
-            TrinaryXAnd0(lTrinary, lPassword[k])
+            TrinaryXAnd0(lPlaintextOrCiphertext, lPassword[k])
 
-            #TrinaryXOr0(lTrinary, lPassword[k])
 
-            #TrinaryXOr2(lTrinary, lPassword[k])
+            """TrinaryXOr0(lPlaintextOrCiphertext, lPassword[k])
 
-            #TrinaryXAnd2(lTrinary, lPassword[k])
+            TrinaryXAnd0(lPlaintextOrCiphertext, lPassword[k])
 
-            #TrinaryXOr0(lTrinary, lPassword[k])
+            TrinaryXOr2(lPlaintextOrCiphertext, lPassword[k])
 
-            #TrinaryXAnd0(lTrinary, lPassword[k])
 
-            #TrinaryXAnd2(lTrinary, lPassword[k])
+            TrinaryXOr0(lPlaintextOrCiphertext, lPassword[k])
 
-            #TrinaryXOr2(lTrinary, lPassword[k])
+            TrinaryXOr2(lPlaintextOrCiphertext, lPassword[k])
 
-            #TrinaryXAnd0(lTrinary, lPassword[k])
+            TrinaryXAnd2(lPlaintextOrCiphertext, lPassword[k])
 
-            #TrinaryXAnd2(lTrinary, lPassword[k])
 
-            iData = 243 * lTrinary[0] + 81 * lTrinary[1] + 27 * lTrinary[2] + 9 * lTrinary[3] + 3 * lTrinary[4] + lTrinary[5]
+            TrinaryXOr0(lPlaintextOrCiphertext, lPassword[k])
+
+            TrinaryXAnd2(lPlaintextOrCiphertext, lPassword[k])
+
+            TrinaryXOr2(lPlaintextOrCiphertext, lPassword[k])
+
+
+            TrinaryXOr0(lPlaintextOrCiphertext, lPassword[k])
+
+            TrinaryXAnd0(lPlaintextOrCiphertext, lPassword[k])
+
+            TrinaryXAnd2(lPlaintextOrCiphertext, lPassword[k])
+
+
+            TrinaryXOr0(lPlaintextOrCiphertext, lPassword[k])
+
+            TrinaryXAnd2(lPlaintextOrCiphertext, lPassword[k])
+
+            TrinaryXAnd0(lPlaintextOrCiphertext, lPassword[k])
+
+
+            TrinaryXOr2(lPlaintextOrCiphertext, lPassword[k])
+
+            TrinaryXOr0(lPlaintextOrCiphertext, lPassword[k])
+
+            TrinaryXAnd0(lPlaintextOrCiphertext, lPassword[k])
+
+
+            TrinaryXOr2(lPlaintextOrCiphertext, lPassword[k])
+
+            TrinaryXAnd0(lPlaintextOrCiphertext, lPassword[k])
+
+            TrinaryXOr0(lPlaintextOrCiphertext, lPassword[k])
+
+
+            TrinaryXOr2(lPlaintextOrCiphertext, lPassword[k])
+
+            TrinaryXOr0(lPlaintextOrCiphertext, lPassword[k])
+
+            TrinaryXAnd2(lPlaintextOrCiphertext, lPassword[k])
+
+
+            TrinaryXOr2(lPlaintextOrCiphertext, lPassword[k])
+
+            TrinaryXAnd2(lPlaintextOrCiphertext, lPassword[k])
+
+            TrinaryXOr0(lPlaintextOrCiphertext, lPassword[k])
+
+
+            TrinaryXOr2(lPlaintextOrCiphertext, lPassword[k])
+
+            TrinaryXAnd0(lPlaintextOrCiphertext, lPassword[k])
+
+            TrinaryXAnd2(lPlaintextOrCiphertext, lPassword[k])
+
+
+            TrinaryXOr2(lPlaintextOrCiphertext, lPassword[k])
+
+            TrinaryXAnd2(lPlaintextOrCiphertext, lPassword[k])
+
+            TrinaryXAnd0(lPlaintextOrCiphertext, lPassword[k])
+
+
+            TrinaryXAnd0(lPlaintextOrCiphertext, lPassword[k])
+
+            TrinaryXAnd2(lPlaintextOrCiphertext, lPassword[k])
+
+            TrinaryXOr0(lPlaintextOrCiphertext, lPassword[k])
+
+
+            TrinaryXAnd0(lPlaintextOrCiphertext, lPassword[k])
+
+            TrinaryXOr0(lPlaintextOrCiphertext, lPassword[k])
+
+            TrinaryXAnd2(lPlaintextOrCiphertext, lPassword[k])
+
+
+            TrinaryXAnd0(lPlaintextOrCiphertext, lPassword[k])
+
+            TrinaryXAnd2(lPlaintextOrCiphertext, lPassword[k])
+
+            TrinaryXOr2(lPlaintextOrCiphertext, lPassword[k])
+
+
+            TrinaryXAnd0(lPlaintextOrCiphertext, lPassword[k])
+
+            TrinaryXOr2(lPlaintextOrCiphertext, lPassword[k])
+
+            TrinaryXAnd2(lPlaintextOrCiphertext, lPassword[k])
+
+
+            TrinaryXAnd0(lPlaintextOrCiphertext, lPassword[k])
+
+            TrinaryXOr0(lPlaintextOrCiphertext, lPassword[k])
+
+            TrinaryXOr2(lPlaintextOrCiphertext, lPassword[k])
+
+
+            TrinaryXAnd0(lPlaintextOrCiphertext, lPassword[k])
+
+            TrinaryXOr2(lPlaintextOrCiphertext, lPassword[k])
+
+            TrinaryXOr0(lPlaintextOrCiphertext, lPassword[k])
+
+
+            TrinaryXAnd2(lPlaintextOrCiphertext, lPassword[k])
+
+            TrinaryXAnd0(lPlaintextOrCiphertext, lPassword[k])
+
+            TrinaryXOr0(lPlaintextOrCiphertext, lPassword[k])
+
+
+            TrinaryXAnd2(lPlaintextOrCiphertext, lPassword[k])
+
+            TrinaryXOr0(lPlaintextOrCiphertext, lPassword[k])
+
+            TrinaryXAnd0(lPlaintextOrCiphertext, lPassword[k])
+
+
+            TrinaryXAnd2(lPlaintextOrCiphertext, lPassword[k])
+
+            TrinaryXAnd0(lPlaintextOrCiphertext, lPassword[k])
+
+            TrinaryXOr2(lPlaintextOrCiphertext, lPassword[k])
+
+
+            TrinaryXAnd2(lPlaintextOrCiphertext, lPassword[k])
+
+            TrinaryXOr2(lPlaintextOrCiphertext, lPassword[k])
+
+            TrinaryXAnd0(lPlaintextOrCiphertext, lPassword[k])
+
+
+            TrinaryXAnd2(lPlaintextOrCiphertext, lPassword[k])
+
+            TrinaryXOr0(lPlaintextOrCiphertext, lPassword[k])
+
+            TrinaryXOr2(lPlaintextOrCiphertext, lPassword[k])
+
+
+            TrinaryXAnd2(lPlaintextOrCiphertext, lPassword[k])
+
+            TrinaryXOr2(lPlaintextOrCiphertext, lPassword[k])
+
+            TrinaryXOr0(lPlaintextOrCiphertext, lPassword[k])"""
+
+            iData = 243 * lPlaintextOrCiphertext[0] + 81 * lPlaintextOrCiphertext[1] + 27 * lPlaintextOrCiphertext[2] + 9 * lPlaintextOrCiphertext[3] + 3 * lPlaintextOrCiphertext[4] + lPlaintextOrCiphertext[5]
 
             baCiphertext[2 * j : 2 * j + 2] = iData.to_bytes(2, "little")
 
@@ -189,7 +332,7 @@ if __name__ == "__main__":
 
         strPassword, lPassword = sys.argv[4], []
 
-        iPasswordLength, lTrinary = len(strPassword), [0] * 6
+        iPasswordLength, lCiphertextOrPlaintext = len(strPassword), [0] * 6
 
         k, baPlaintext = 0, bytearray(iFileSize)
 
@@ -199,33 +342,176 @@ if __name__ == "__main__":
             Trinary(lPassword[i], ord(strPassword[i]))
 
         for j in range(iFileSize):
-            Trinary(lTrinary, bCiphertext[2 * j] + (bCiphertext[2 * j + 1] << 8))
+            Trinary(lCiphertextOrPlaintext, bCiphertext[2 * j] + (bCiphertext[2 * j + 1] << 8))
 
-            TrinaryXAnd0(lTrinary, lPassword[k])
+            TrinaryXAnd0(lCiphertextOrPlaintext, lPassword[k])
 
-            TrinaryXOr2(lTrinary, lPassword[k])
+            TrinaryXOr2(lCiphertextOrPlaintext, lPassword[k])
 
-            TrinaryXOr0(lTrinary, lPassword[k])
+            TrinaryXOr0(lCiphertextOrPlaintext, lPassword[k])
 
-            #TrinaryXAnd2(lTrinary, lPassword[k])
 
-            #TrinaryXOr2(lTrinary, lPassword[k])
+            """TrinaryXOr2(lCiphertextOrPlaintext, lPassword[k])
 
-            #TrinaryXOr0(lTrinary, lPassword[k])
+            TrinaryXAnd0(lCiphertextOrPlaintext, lPassword[k])
 
-            #TrinaryXAnd2(lTrinary, lPassword[k])
+            TrinaryXOr0(lCiphertextOrPlaintext, lPassword[k])
 
-            #TrinaryXAnd0(lTrinary, lPassword[k])
 
-            #TrinaryXOr0(lTrinary, lPassword[k])
+            TrinaryXAnd2(lCiphertextOrPlaintext, lPassword[k])
 
-            #TrinaryXAnd2(lTrinary, lPassword[k])
+            TrinaryXOr2(lCiphertextOrPlaintext, lPassword[k])
 
-            #TrinaryXAnd0(lTrinary, lPassword[k])
+            TrinaryXOr0(lCiphertextOrPlaintext, lPassword[k])
 
-            #TrinaryXOr2(lTrinary, lPassword[k])
 
-            baPlaintext[j] = 243 * lTrinary[0] + 81 * lTrinary[1] + 27 * lTrinary[2] + 9 * lTrinary[3] + 3 * lTrinary[4] + lTrinary[5]
+            TrinaryXOr2(lCiphertextOrPlaintext, lPassword[k])
+
+            TrinaryXAnd2(lCiphertextOrPlaintext, lPassword[k])
+
+            TrinaryXOr0(lCiphertextOrPlaintext, lPassword[k])
+
+
+            TrinaryXAnd2(lCiphertextOrPlaintext, lPassword[k])
+
+            TrinaryXAnd0(lCiphertextOrPlaintext, lPassword[k])
+
+            TrinaryXOr0(lCiphertextOrPlaintext, lPassword[k])
+
+
+            TrinaryXAnd0(lCiphertextOrPlaintext, lPassword[k])
+
+            TrinaryXAnd2(lCiphertextOrPlaintext, lPassword[k])
+
+            TrinaryXOr0(lCiphertextOrPlaintext, lPassword[k])
+
+
+            TrinaryXAnd0(lCiphertextOrPlaintext, lPassword[k])
+
+            TrinaryXOr0(lCiphertextOrPlaintext, lPassword[k])
+
+            TrinaryXOr2(lCiphertextOrPlaintext, lPassword[k])
+
+
+            TrinaryXOr0(lCiphertextOrPlaintext, lPassword[k])
+
+            TrinaryXAnd0(lCiphertextOrPlaintext, lPassword[k])
+
+            TrinaryXOr2(lCiphertextOrPlaintext, lPassword[k])
+
+
+            TrinaryXAnd2(lCiphertextOrPlaintext, lPassword[k])
+
+            TrinaryXOr0(lCiphertextOrPlaintext, lPassword[k])
+
+            TrinaryXOr2(lCiphertextOrPlaintext, lPassword[k])
+
+
+            TrinaryXOr0(lCiphertextOrPlaintext, lPassword[k])
+
+            TrinaryXAnd2(lCiphertextOrPlaintext, lPassword[k])
+
+            TrinaryXOr2(lCiphertextOrPlaintext, lPassword[k])
+
+
+            TrinaryXAnd2(lCiphertextOrPlaintext, lPassword[k])
+
+            TrinaryXAnd0(lCiphertextOrPlaintext, lPassword[k])
+
+            TrinaryXOr2(lCiphertextOrPlaintext, lPassword[k])
+
+
+            TrinaryXAnd0(lCiphertextOrPlaintext, lPassword[k])
+
+            TrinaryXAnd2(lCiphertextOrPlaintext, lPassword[k])
+
+            TrinaryXOr2(lCiphertextOrPlaintext, lPassword[k])
+
+
+            TrinaryXOr0(lCiphertextOrPlaintext, lPassword[k])
+
+            TrinaryXAnd2(lCiphertextOrPlaintext, lPassword[k])
+
+            TrinaryXAnd0(lCiphertextOrPlaintext, lPassword[k])
+
+
+            TrinaryXAnd2(lCiphertextOrPlaintext, lPassword[k])
+
+            TrinaryXOr0(lCiphertextOrPlaintext, lPassword[k])
+
+            TrinaryXAnd0(lCiphertextOrPlaintext, lPassword[k])
+
+
+            TrinaryXOr2(lCiphertextOrPlaintext, lPassword[k])
+
+            TrinaryXAnd2(lCiphertextOrPlaintext, lPassword[k])
+
+            TrinaryXAnd0(lCiphertextOrPlaintext, lPassword[k])
+
+
+            TrinaryXAnd2(lCiphertextOrPlaintext, lPassword[k])
+
+            TrinaryXOr2(lCiphertextOrPlaintext, lPassword[k])
+
+            TrinaryXAnd0(lCiphertextOrPlaintext, lPassword[k])
+
+
+            TrinaryXOr2(lCiphertextOrPlaintext, lPassword[k])
+
+            TrinaryXOr0(lCiphertextOrPlaintext, lPassword[k])
+
+            TrinaryXAnd0(lCiphertextOrPlaintext, lPassword[k])
+
+
+            TrinaryXOr0(lCiphertextOrPlaintext, lPassword[k])
+
+            TrinaryXOr2(lCiphertextOrPlaintext, lPassword[k])
+
+            TrinaryXAnd0(lCiphertextOrPlaintext, lPassword[k])
+
+
+            TrinaryXOr0(lCiphertextOrPlaintext, lPassword[k])
+
+            TrinaryXAnd0(lCiphertextOrPlaintext, lPassword[k])
+
+            TrinaryXAnd2(lCiphertextOrPlaintext, lPassword[k])
+
+
+            TrinaryXAnd0(lCiphertextOrPlaintext, lPassword[k])
+
+            TrinaryXOr0(lCiphertextOrPlaintext, lPassword[k])
+
+            TrinaryXAnd2(lCiphertextOrPlaintext, lPassword[k])
+
+
+            TrinaryXOr2(lCiphertextOrPlaintext, lPassword[k])
+
+            TrinaryXAnd0(lCiphertextOrPlaintext, lPassword[k])
+
+            TrinaryXAnd2(lCiphertextOrPlaintext, lPassword[k])
+
+
+            TrinaryXAnd0(lCiphertextOrPlaintext, lPassword[k])
+
+            TrinaryXOr2(lCiphertextOrPlaintext, lPassword[k])
+
+            TrinaryXAnd2(lCiphertextOrPlaintext, lPassword[k])
+
+
+            TrinaryXOr2(lCiphertextOrPlaintext, lPassword[k])
+
+            TrinaryXOr0(lCiphertextOrPlaintext, lPassword[k])
+
+            TrinaryXAnd2(lCiphertextOrPlaintext, lPassword[k])
+
+
+            TrinaryXOr0(lCiphertextOrPlaintext, lPassword[k])
+
+            TrinaryXOr2(lCiphertextOrPlaintext, lPassword[k])
+
+            TrinaryXAnd2(lCiphertextOrPlaintext, lPassword[k])"""
+
+            baPlaintext[j] = 243 * lCiphertextOrPlaintext[0] + 81 * lCiphertextOrPlaintext[1] + 27 * lCiphertextOrPlaintext[2] + 9 * lCiphertextOrPlaintext[3] + 3 * lCiphertextOrPlaintext[4] + lCiphertextOrPlaintext[5]
 
             k = (k + 1) % iPasswordLength
 

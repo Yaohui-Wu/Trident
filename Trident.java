@@ -20,9 +20,9 @@ public class Trident
 
         if (iNumeric != 0)
         {
-            for (int i = 5; i >= 0; --i)
+            for (int i = 5; i > -1; --i)
             {
-                baTrinary[i] = (byte)(iNumeric % 3);
+                baTrinary[i] = (byte)(iNumeric % 3 & 255);
 
                 iNumeric /= 3;
             }
@@ -33,46 +33,46 @@ public class Trident
 // 1 1 1
 // 2 2 0
 
-    private static void TrinaryXOr0(byte[] baCiphertextOrPlaintext,
+    private static void TrinaryXOr0(byte[] baPlaintextOrCiphertext,
                                     byte[] baPassword)
     {
-        for (int j = 0; j < 6; ++j)
+        for (int i = 0; i < 6; ++i)
         {
-            if (baCiphertextOrPlaintext[j] == 0 && baPassword[j] == 0)
+            if (baPlaintextOrCiphertext[i] == 0 && baPassword[i] == 0)
             {
-                baCiphertextOrPlaintext[j] = 0;
+                baPlaintextOrCiphertext[i] = 0;
             }
-            else if (baCiphertextOrPlaintext[j] == 0 && baPassword[j] == 1)
+            else if (baPlaintextOrCiphertext[i] == 0 && baPassword[i] == 1)
             {
-                baCiphertextOrPlaintext[j] = 0;
+                baPlaintextOrCiphertext[i] = 0;
             }
-            else if (baCiphertextOrPlaintext[j] == 0 && baPassword[j] == 2)
+            else if (baPlaintextOrCiphertext[i] == 0 && baPassword[i] == 2)
             {
-                baCiphertextOrPlaintext[j] = 2;
+                baPlaintextOrCiphertext[i] = 2;
             }
-            else if (baCiphertextOrPlaintext[j] == 1 && baPassword[j] == 0)
+            else if (baPlaintextOrCiphertext[i] == 1 && baPassword[i] == 0)
             {
-                baCiphertextOrPlaintext[j] = 1;
+                baPlaintextOrCiphertext[i] = 1;
             }
-            else if (baCiphertextOrPlaintext[j] == 1 && baPassword[j] == 1)
+            else if (baPlaintextOrCiphertext[i] == 1 && baPassword[i] == 1)
             {
-                baCiphertextOrPlaintext[j] = 1;
+                baPlaintextOrCiphertext[i] = 1;
             }
-            else if (baCiphertextOrPlaintext[j] == 1 && baPassword[j] == 2)
+            else if (baPlaintextOrCiphertext[i] == 1 && baPassword[i] == 2)
             {
-                baCiphertextOrPlaintext[j] = 1;
+                baPlaintextOrCiphertext[i] = 1;
             }
-            else if (baCiphertextOrPlaintext[j] == 2 && baPassword[j] == 0)
+            else if (baPlaintextOrCiphertext[i] == 2 && baPassword[i] == 0)
             {
-                baCiphertextOrPlaintext[j] = 2;
+                baPlaintextOrCiphertext[i] = 2;
             }
-            else if (baCiphertextOrPlaintext[j] == 2 && baPassword[j] == 1)
+            else if (baPlaintextOrCiphertext[i] == 2 && baPassword[i] == 1)
             {
-                baCiphertextOrPlaintext[j] = 2;
+                baPlaintextOrCiphertext[i] = 2;
             }
-            else if (baCiphertextOrPlaintext[j] == 2 && baPassword[j] == 2)
+            else if (baPlaintextOrCiphertext[i] == 2 && baPassword[i] == 2)
             {
-                baCiphertextOrPlaintext[j] = 0;
+                baPlaintextOrCiphertext[i] = 0;
             }
         }
     }
@@ -81,46 +81,46 @@ public class Trident
 // 1 1 1
 // 2 0 0
 
-    private static void TrinaryXOr2(byte[] baCiphertextOrPlaintext,
+    private static void TrinaryXOr2(byte[] baPlaintextOrCiphertext,
                                     byte[] baPassword)
     {
         for (int j = 0; j < 6; ++j)
         {
-            if (baCiphertextOrPlaintext[j] == 0 && baPassword[j] == 0)
+            if (baPlaintextOrCiphertext[j] == 0 && baPassword[j] == 0)
             {
-                baCiphertextOrPlaintext[j] = 0;
+                baPlaintextOrCiphertext[j] = 0;
             }
-            else if (baCiphertextOrPlaintext[j] == 0 && baPassword[j] == 1)
+            else if (baPlaintextOrCiphertext[j] == 0 && baPassword[j] == 1)
             {
-                baCiphertextOrPlaintext[j] = 2;
+                baPlaintextOrCiphertext[j] = 2;
             }
-            else if (baCiphertextOrPlaintext[j] == 0 && baPassword[j] == 2)
+            else if (baPlaintextOrCiphertext[j] == 0 && baPassword[j] == 2)
             {
-                baCiphertextOrPlaintext[j] = 2;
+                baPlaintextOrCiphertext[j] = 2;
             }
-            else if (baCiphertextOrPlaintext[j] == 1 && baPassword[j] == 0)
+            else if (baPlaintextOrCiphertext[j] == 1 && baPassword[j] == 0)
             {
-                baCiphertextOrPlaintext[j] = 1;
+                baPlaintextOrCiphertext[j] = 1;
             }
-            else if (baCiphertextOrPlaintext[j] == 1 && baPassword[j] == 1)
+            else if (baPlaintextOrCiphertext[j] == 1 && baPassword[j] == 1)
             {
-                baCiphertextOrPlaintext[j] = 1;
+                baPlaintextOrCiphertext[j] = 1;
             }
-            else if (baCiphertextOrPlaintext[j] == 1 && baPassword[j] == 2)
+            else if (baPlaintextOrCiphertext[j] == 1 && baPassword[j] == 2)
             {
-                baCiphertextOrPlaintext[j] = 1;
+                baPlaintextOrCiphertext[j] = 1;
             }
-            else if (baCiphertextOrPlaintext[j] == 2 && baPassword[j] == 0)
+            else if (baPlaintextOrCiphertext[j] == 2 && baPassword[j] == 0)
             {
-                baCiphertextOrPlaintext[j] = 2;
+                baPlaintextOrCiphertext[j] = 2;
             }
-            else if (baCiphertextOrPlaintext[j] == 2 && baPassword[j] == 1)
+            else if (baPlaintextOrCiphertext[j] == 2 && baPassword[j] == 1)
             {
-                baCiphertextOrPlaintext[j] = 0;
+                baPlaintextOrCiphertext[j] = 0;
             }
-            else if (baCiphertextOrPlaintext[j] == 2 && baPassword[j] == 2)
+            else if (baPlaintextOrCiphertext[j] == 2 && baPassword[j] == 2)
             {
-                baCiphertextOrPlaintext[j] = 0;
+                baPlaintextOrCiphertext[j] = 0;
             }
         }
     }
@@ -129,46 +129,46 @@ public class Trident
 // 1 1 1
 // 0 2 2
 
-    private static void TrinaryXAnd0(byte[] baCiphertextOrPlaintext,
+    private static void TrinaryXAnd0(byte[] baPlaintextOrCiphertext,
                                      byte[] baPassword)
     {
         for (int k = 0; k < 6; ++k)
         {
-            if (baCiphertextOrPlaintext[k] == 0 && baPassword[k] == 0)
+            if (baPlaintextOrCiphertext[k] == 0 && baPassword[k] == 0)
             {
-                baCiphertextOrPlaintext[k] = 2;
+                baPlaintextOrCiphertext[k] = 2;
             }
-            else if (baCiphertextOrPlaintext[k] == 0 && baPassword[k] == 1)
+            else if (baPlaintextOrCiphertext[k] == 0 && baPassword[k] == 1)
             {
-                baCiphertextOrPlaintext[k] = 0;
+                baPlaintextOrCiphertext[k] = 0;
             }
-            else if (baCiphertextOrPlaintext[k] == 0 && baPassword[k] == 2)
+            else if (baPlaintextOrCiphertext[k] == 0 && baPassword[k] == 2)
             {
-                baCiphertextOrPlaintext[k] = 0;
+                baPlaintextOrCiphertext[k] = 0;
             }
-            else if (baCiphertextOrPlaintext[k] == 1 && baPassword[k] == 0)
+            else if (baPlaintextOrCiphertext[k] == 1 && baPassword[k] == 0)
             {
-                baCiphertextOrPlaintext[k] = 1;
+                baPlaintextOrCiphertext[k] = 1;
             }
-            else if (baCiphertextOrPlaintext[k] == 1 && baPassword[k] == 1)
+            else if (baPlaintextOrCiphertext[k] == 1 && baPassword[k] == 1)
             {
-                baCiphertextOrPlaintext[k] = 1;
+                baPlaintextOrCiphertext[k] = 1;
             }
-            else if (baCiphertextOrPlaintext[k] == 1 && baPassword[k] == 2)
+            else if (baPlaintextOrCiphertext[k] == 1 && baPassword[k] == 2)
             {
-                baCiphertextOrPlaintext[k] = 1;
+                baPlaintextOrCiphertext[k] = 1;
             }
-            else if (baCiphertextOrPlaintext[k] == 2 && baPassword[k] == 0)
+            else if (baPlaintextOrCiphertext[k] == 2 && baPassword[k] == 0)
             {
-                baCiphertextOrPlaintext[k] = 0;
+                baPlaintextOrCiphertext[k] = 0;
             }
-            else if (baCiphertextOrPlaintext[k] == 2 && baPassword[k] == 1)
+            else if (baPlaintextOrCiphertext[k] == 2 && baPassword[k] == 1)
             {
-                baCiphertextOrPlaintext[k] = 2;
+                baPlaintextOrCiphertext[k] = 2;
             }
-            else if (baCiphertextOrPlaintext[k] == 2 && baPassword[k] == 2)
+            else if (baPlaintextOrCiphertext[k] == 2 && baPassword[k] == 2)
             {
-                baCiphertextOrPlaintext[k] = 2;
+                baPlaintextOrCiphertext[k] = 2;
             }
         }
     }
@@ -177,46 +177,46 @@ public class Trident
 // 1 1 1
 // 0 0 2
 
-    private static void TrinaryXAnd2(byte[] baCiphertextOrPlaintext,
+    private static void TrinaryXAnd2(byte[] baPlaintextOrCiphertext,
                                      byte[] baPassword)
     {
-        for (int k = 0; k < 6; ++k)
+        for (int l = 0; l < 6; ++l)
         {
-            if (baCiphertextOrPlaintext[k] == 0 && baPassword[k] == 0)
+            if (baPlaintextOrCiphertext[l] == 0 && baPassword[l] == 0)
             {
-                baCiphertextOrPlaintext[k] = 2;
+                baPlaintextOrCiphertext[l] = 2;
             }
-            else if (baCiphertextOrPlaintext[k] == 0 && baPassword[k] == 1)
+            else if (baPlaintextOrCiphertext[l] == 0 && baPassword[l] == 1)
             {
-                baCiphertextOrPlaintext[k] = 2;
+                baPlaintextOrCiphertext[l] = 2;
             }
-            else if (baCiphertextOrPlaintext[k] == 0 && baPassword[k] == 2)
+            else if (baPlaintextOrCiphertext[l] == 0 && baPassword[l] == 2)
             {
-                baCiphertextOrPlaintext[k] = 0;
+                baPlaintextOrCiphertext[l] = 0;
             }
-            else if (baCiphertextOrPlaintext[k] == 1 && baPassword[k] == 0)
+            else if (baPlaintextOrCiphertext[l] == 1 && baPassword[l] == 0)
             {
-                baCiphertextOrPlaintext[k] = 1;
+                baPlaintextOrCiphertext[l] = 1;
             }
-            else if (baCiphertextOrPlaintext[k] == 1 && baPassword[k] == 1)
+            else if (baPlaintextOrCiphertext[l] == 1 && baPassword[l] == 1)
             {
-                baCiphertextOrPlaintext[k] = 1;
+                baPlaintextOrCiphertext[l] = 1;
             }
-            else if (baCiphertextOrPlaintext[k] == 1 && baPassword[k] == 2)
+            else if (baPlaintextOrCiphertext[l] == 1 && baPassword[l] == 2)
             {
-                baCiphertextOrPlaintext[k] = 1;
+                baPlaintextOrCiphertext[l] = 1;
             }
-            else if (baCiphertextOrPlaintext[k] == 2 && baPassword[k] == 0)
+            else if (baPlaintextOrCiphertext[l] == 2 && baPassword[l] == 0)
             {
-                baCiphertextOrPlaintext[k] = 0;
+                baPlaintextOrCiphertext[l] = 0;
             }
-            else if (baCiphertextOrPlaintext[k] == 2 && baPassword[k] == 1)
+            else if (baPlaintextOrCiphertext[l] == 2 && baPassword[l] == 1)
             {
-                baCiphertextOrPlaintext[k] = 0;
+                baPlaintextOrCiphertext[l] = 0;
             }
-            else if (baCiphertextOrPlaintext[k] == 2 && baPassword[k] == 2)
+            else if (baPlaintextOrCiphertext[l] == 2 && baPassword[l] == 2)
             {
-                baCiphertextOrPlaintext[k] = 2;
+                baPlaintextOrCiphertext[l] = 2;
             }
         }
     }
@@ -271,11 +271,27 @@ public class Trident
 
                     TrinaryXAnd0(baPlaintextOrCiphertext, baPassword[k]);
 
+
                     /*TrinaryXOr0(baPlaintextOrCiphertext, baPassword[k]);
+
+                    TrinaryXAnd0(baPlaintextOrCiphertext, baPassword[k]);
+
+                    TrinaryXOr2(baPlaintextOrCiphertext, baPassword[k]);
+
+
+                    TrinaryXOr0(baPlaintextOrCiphertext, baPassword[k]);
 
                     TrinaryXOr2(baPlaintextOrCiphertext, baPassword[k]);
 
                     TrinaryXAnd2(baPlaintextOrCiphertext, baPassword[k]);
+
+
+                    TrinaryXOr0(baPlaintextOrCiphertext, baPassword[k]);
+
+                    TrinaryXAnd2(baPlaintextOrCiphertext, baPassword[k]);
+
+                    TrinaryXOr2(baPlaintextOrCiphertext, baPassword[k]);
+
 
                     TrinaryXOr0(baPlaintextOrCiphertext, baPassword[k]);
 
@@ -283,11 +299,138 @@ public class Trident
 
                     TrinaryXAnd2(baPlaintextOrCiphertext, baPassword[k]);
 
+
+                    TrinaryXOr0(baPlaintextOrCiphertext, baPassword[k]);
+
+                    TrinaryXAnd2(baPlaintextOrCiphertext, baPassword[k]);
+
+                    TrinaryXAnd0(baPlaintextOrCiphertext, baPassword[k]);
+
+
+                    TrinaryXOr2(baPlaintextOrCiphertext, baPassword[k]);
+
+                    TrinaryXOr0(baPlaintextOrCiphertext, baPassword[k]);
+
+                    TrinaryXAnd0(baPlaintextOrCiphertext, baPassword[k]);
+
+
                     TrinaryXOr2(baPlaintextOrCiphertext, baPassword[k]);
 
                     TrinaryXAnd0(baPlaintextOrCiphertext, baPassword[k]);
 
-                    TrinaryXAnd2(baPlaintextOrCiphertext, baPassword[k]);*/
+                    TrinaryXOr0(baPlaintextOrCiphertext, baPassword[k]);
+
+
+                    TrinaryXOr2(baPlaintextOrCiphertext, baPassword[k]);
+
+                    TrinaryXOr0(baPlaintextOrCiphertext, baPassword[k]);
+
+                    TrinaryXAnd2(baPlaintextOrCiphertext, baPassword[k]);
+
+
+                    TrinaryXOr2(baPlaintextOrCiphertext, baPassword[k]);
+
+                    TrinaryXAnd2(baPlaintextOrCiphertext, baPassword[k]);
+
+                    TrinaryXOr0(baPlaintextOrCiphertext, baPassword[k]);
+
+
+                    TrinaryXOr2(baPlaintextOrCiphertext, baPassword[k]);
+
+                    TrinaryXAnd0(baPlaintextOrCiphertext, baPassword[k]);
+
+                    TrinaryXAnd2(baPlaintextOrCiphertext, baPassword[k]);
+
+
+                    TrinaryXOr2(baPlaintextOrCiphertext, baPassword[k]);
+
+                    TrinaryXAnd2(baPlaintextOrCiphertext, baPassword[k]);
+
+                    TrinaryXAnd0(baPlaintextOrCiphertext, baPassword[k]);
+
+
+                    TrinaryXAnd0(baPlaintextOrCiphertext, baPassword[k]);
+
+                    TrinaryXAnd2(baPlaintextOrCiphertext, baPassword[k]);
+
+                    TrinaryXOr0(baPlaintextOrCiphertext, baPassword[k]);
+
+
+                    TrinaryXAnd0(baPlaintextOrCiphertext, baPassword[k]);
+
+                    TrinaryXOr0(baPlaintextOrCiphertext, baPassword[k]);
+
+                    TrinaryXAnd2(baPlaintextOrCiphertext, baPassword[k]);
+
+
+                    TrinaryXAnd0(baPlaintextOrCiphertext, baPassword[k]);
+
+                    TrinaryXAnd2(baPlaintextOrCiphertext, baPassword[k]);
+
+                    TrinaryXOr2(baPlaintextOrCiphertext, baPassword[k]);
+
+
+                    TrinaryXAnd0(baPlaintextOrCiphertext, baPassword[k]);
+
+                    TrinaryXOr2(baPlaintextOrCiphertext, baPassword[k]);
+
+                    TrinaryXAnd2(baPlaintextOrCiphertext, baPassword[k]);
+
+
+                    TrinaryXAnd0(baPlaintextOrCiphertext, baPassword[k]);
+
+                    TrinaryXOr0(baPlaintextOrCiphertext, baPassword[k]);
+
+                    TrinaryXOr2(baPlaintextOrCiphertext, baPassword[k]);
+
+
+                    TrinaryXAnd0(baPlaintextOrCiphertext, baPassword[k]);
+
+                    TrinaryXOr2(baPlaintextOrCiphertext, baPassword[k]);
+
+                    TrinaryXOr0(baPlaintextOrCiphertext, baPassword[k]);
+
+
+                    TrinaryXAnd2(baPlaintextOrCiphertext, baPassword[k]);
+
+                    TrinaryXAnd0(baPlaintextOrCiphertext, baPassword[k]);
+
+                    TrinaryXOr0(baPlaintextOrCiphertext, baPassword[k]);
+
+
+                    TrinaryXAnd2(baPlaintextOrCiphertext, baPassword[k]);
+
+                    TrinaryXOr0(baPlaintextOrCiphertext, baPassword[k]);
+
+                    TrinaryXAnd0(baPlaintextOrCiphertext, baPassword[k]);
+
+
+                    TrinaryXAnd2(baPlaintextOrCiphertext, baPassword[k]);
+
+                    TrinaryXAnd0(baPlaintextOrCiphertext, baPassword[k]);
+
+                    TrinaryXOr2(baPlaintextOrCiphertext, baPassword[k]);
+
+
+                    TrinaryXAnd2(baPlaintextOrCiphertext, baPassword[k]);
+
+                    TrinaryXOr2(baPlaintextOrCiphertext, baPassword[k]);
+
+                    TrinaryXAnd0(baPlaintextOrCiphertext, baPassword[k]);
+
+
+                    TrinaryXAnd2(baPlaintextOrCiphertext, baPassword[k]);
+
+                    TrinaryXOr0(baPlaintextOrCiphertext, baPassword[k]);
+
+                    TrinaryXOr2(baPlaintextOrCiphertext, baPassword[k]);
+
+
+                    TrinaryXAnd2(baPlaintextOrCiphertext, baPassword[k]);
+
+                    TrinaryXOr2(baPlaintextOrCiphertext, baPassword[k]);
+
+                    TrinaryXOr0(baPlaintextOrCiphertext, baPassword[k]);*/
 
                     rafCiphertext.writeShort(243 * baPlaintextOrCiphertext[0] + 81 * baPlaintextOrCiphertext[1] + 27 * baPlaintextOrCiphertext[2] + 9 * baPlaintextOrCiphertext[3] + 3 * baPlaintextOrCiphertext[4] + baPlaintextOrCiphertext[5]);
 
@@ -362,7 +505,153 @@ public class Trident
 
                     TrinaryXOr0(baCiphertextOrPlaintext, baPassword[k]);
 
-                    /*TrinaryXAnd2(baCiphertextOrPlaintext, baPassword[k]);
+
+                    /*TrinaryXOr2(baCiphertextOrPlaintext, baPassword[k]);
+
+                    TrinaryXAnd0(baCiphertextOrPlaintext, baPassword[k]);
+
+                    TrinaryXOr0(baCiphertextOrPlaintext, baPassword[k]);
+
+
+                    TrinaryXAnd2(baCiphertextOrPlaintext, baPassword[k]);
+
+                    TrinaryXOr2(baCiphertextOrPlaintext, baPassword[k]);
+
+                    TrinaryXOr0(baCiphertextOrPlaintext, baPassword[k]);
+
+
+                    TrinaryXOr2(baCiphertextOrPlaintext, baPassword[k]);
+
+                    TrinaryXAnd2(baCiphertextOrPlaintext, baPassword[k]);
+
+                    TrinaryXOr0(baCiphertextOrPlaintext, baPassword[k]);
+
+
+                    TrinaryXAnd2(baCiphertextOrPlaintext, baPassword[k]);
+
+                    TrinaryXAnd0(baCiphertextOrPlaintext, baPassword[k]);
+
+                    TrinaryXOr0(baCiphertextOrPlaintext, baPassword[k]);
+
+
+                    TrinaryXAnd0(baCiphertextOrPlaintext, baPassword[k]);
+
+                    TrinaryXAnd2(baCiphertextOrPlaintext, baPassword[k]);
+
+                    TrinaryXOr0(baCiphertextOrPlaintext, baPassword[k]);
+
+
+                    TrinaryXAnd0(baCiphertextOrPlaintext, baPassword[k]);
+
+                    TrinaryXOr0(baCiphertextOrPlaintext, baPassword[k]);
+
+                    TrinaryXOr2(baCiphertextOrPlaintext, baPassword[k]);
+
+
+                    TrinaryXOr0(baCiphertextOrPlaintext, baPassword[k]);
+
+                    TrinaryXAnd0(baCiphertextOrPlaintext, baPassword[k]);
+
+                    TrinaryXOr2(baCiphertextOrPlaintext, baPassword[k]);
+
+
+                    TrinaryXAnd2(baCiphertextOrPlaintext, baPassword[k]);
+
+                    TrinaryXOr0(baCiphertextOrPlaintext, baPassword[k]);
+
+                    TrinaryXOr2(baCiphertextOrPlaintext, baPassword[k]);
+
+
+                    TrinaryXOr0(baCiphertextOrPlaintext, baPassword[k]);
+
+                    TrinaryXAnd2(baCiphertextOrPlaintext, baPassword[k]);
+
+                    TrinaryXOr2(baCiphertextOrPlaintext, baPassword[k]);
+
+
+                    TrinaryXAnd2(baCiphertextOrPlaintext, baPassword[k]);
+
+                    TrinaryXAnd0(baCiphertextOrPlaintext, baPassword[k]);
+
+                    TrinaryXOr2(baCiphertextOrPlaintext, baPassword[k]);
+
+
+                    TrinaryXAnd0(baCiphertextOrPlaintext, baPassword[k]);
+
+                    TrinaryXAnd2(baCiphertextOrPlaintext, baPassword[k]);
+
+                    TrinaryXOr2(baCiphertextOrPlaintext, baPassword[k]);
+
+
+                    TrinaryXOr0(baCiphertextOrPlaintext, baPassword[k]);
+
+                    TrinaryXAnd2(baCiphertextOrPlaintext, baPassword[k]);
+
+                    TrinaryXAnd0(baCiphertextOrPlaintext, baPassword[k]);
+
+
+                    TrinaryXAnd2(baCiphertextOrPlaintext, baPassword[k]);
+
+                    TrinaryXOr0(baCiphertextOrPlaintext, baPassword[k]);
+
+                    TrinaryXAnd0(baCiphertextOrPlaintext, baPassword[k]);
+
+
+                    TrinaryXOr2(baCiphertextOrPlaintext, baPassword[k]);
+
+                    TrinaryXAnd2(baCiphertextOrPlaintext, baPassword[k]);
+
+                    TrinaryXAnd0(baCiphertextOrPlaintext, baPassword[k]);
+
+
+                    TrinaryXAnd2(baCiphertextOrPlaintext, baPassword[k]);
+
+                    TrinaryXOr2(baCiphertextOrPlaintext, baPassword[k]);
+
+                    TrinaryXAnd0(baCiphertextOrPlaintext, baPassword[k]);
+
+
+                    TrinaryXOr2(baCiphertextOrPlaintext, baPassword[k]);
+
+                    TrinaryXOr0(baCiphertextOrPlaintext, baPassword[k]);
+
+                    TrinaryXAnd0(baCiphertextOrPlaintext, baPassword[k]);
+
+
+                    TrinaryXOr0(baCiphertextOrPlaintext, baPassword[k]);
+
+                    TrinaryXOr2(baCiphertextOrPlaintext, baPassword[k]);
+
+                    TrinaryXAnd0(baCiphertextOrPlaintext, baPassword[k]);
+
+
+                    TrinaryXOr0(baCiphertextOrPlaintext, baPassword[k]);
+
+                    TrinaryXAnd0(baCiphertextOrPlaintext, baPassword[k]);
+
+                    TrinaryXAnd2(baCiphertextOrPlaintext, baPassword[k]);
+
+
+                    TrinaryXAnd0(baCiphertextOrPlaintext, baPassword[k]);
+
+                    TrinaryXOr0(baCiphertextOrPlaintext, baPassword[k]);
+
+                    TrinaryXAnd2(baCiphertextOrPlaintext, baPassword[k]);
+
+
+                    TrinaryXOr2(baCiphertextOrPlaintext, baPassword[k]);
+
+                    TrinaryXAnd0(baCiphertextOrPlaintext, baPassword[k]);
+
+                    TrinaryXAnd2(baCiphertextOrPlaintext, baPassword[k]);
+
+
+                    TrinaryXAnd0(baCiphertextOrPlaintext, baPassword[k]);
+
+                    TrinaryXOr2(baCiphertextOrPlaintext, baPassword[k]);
+
+                    TrinaryXAnd2(baCiphertextOrPlaintext, baPassword[k]);
+
 
                     TrinaryXOr2(baCiphertextOrPlaintext, baPassword[k]);
 
@@ -370,15 +659,12 @@ public class Trident
 
                     TrinaryXAnd2(baCiphertextOrPlaintext, baPassword[k]);
 
-                    TrinaryXAnd0(baCiphertextOrPlaintext, baPassword[k]);
 
                     TrinaryXOr0(baCiphertextOrPlaintext, baPassword[k]);
 
-                    TrinaryXAnd2(baCiphertextOrPlaintext, baPassword[k]);
+                    TrinaryXOr2(baCiphertextOrPlaintext, baPassword[k]);
 
-                    TrinaryXAnd0(baCiphertextOrPlaintext, baPassword[k]);
-
-                    TrinaryXOr2(baCiphertextOrPlaintext, baPassword[k]);*/
+                    TrinaryXAnd2(baCiphertextOrPlaintext, baPassword[k]);*/
 
                     rafPlaintext.writeByte(243 * baCiphertextOrPlaintext[0] + 81 * baCiphertextOrPlaintext[1] + 27 * baCiphertextOrPlaintext[2] + 9 * baCiphertextOrPlaintext[3] + 3 * baCiphertextOrPlaintext[4] + baCiphertextOrPlaintext[5]);
 
